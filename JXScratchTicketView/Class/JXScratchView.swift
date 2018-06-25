@@ -65,6 +65,7 @@ open class JXScratchView: UIView {
         scratchMaskView?.frame = self.bounds
     }
 
+    //展示全部
     open func showContentView() {
         self.scratchContentView.layer.mask = nil
     }

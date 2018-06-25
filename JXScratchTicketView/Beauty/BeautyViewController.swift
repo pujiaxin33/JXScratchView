@@ -23,6 +23,7 @@ class BeautyViewController: UIViewController {
         underImageView = UIImageView()
 
         beautyView = JXScratchView(contentView: underImageView, maskView: aboveImageView)
+        beautyView.strokeLineWidth = 30
         let margin: CGFloat = 20
         let width = UIScreen.main.bounds.size.width - margin*2
         let height = width*(480/320)
