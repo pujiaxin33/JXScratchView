@@ -93,7 +93,9 @@ open class JXScratchView: UIView {
         maskPath.move(to: point)
         maskLayer.path = maskPath.cgPath
 
-        updateScratchScopePercent()
+        if self.delegate != nil {
+            updateScratchScopePercent()
+        }
     }
 
     private func updateScratchScopePercent() {
