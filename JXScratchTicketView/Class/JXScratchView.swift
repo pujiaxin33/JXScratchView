@@ -52,6 +52,9 @@ open class JXScratchView: UIView {
         scratchContentView?.layer.mask = maskLayer
 
         maskPath = UIBezierPath()
+
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(processPanGesture(gesture:)))
+        self.addGestureRecognizer(pan)
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -76,25 +79,22 @@ open class JXScratchView: UIView {
         self.scratchContentView.layer.mask = maskLayer
     }
 
-    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else {
-            return
-        }
-        let point = touch.location(in: scratchContentView)
-        maskPath.move(to: point)
-    }
+    @objc func processPanGesture(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            let point = gesture.location(in: scratchContentView)
+            maskPath.move(to: point)
+        case .changed:
+            let point = gesture.location(in: scratchContentView)
+            maskPath.addLine(to: point)
+            maskPath.move(to: point)
+            maskLayer.path = maskPath.cgPath
 
-    open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else {
-            return
-        }
-        let point = touch.location(in: scratchContentView)
-        maskPath.addLine(to: point)
-        maskPath.move(to: point)
-        maskLayer.path = maskPath.cgPath
-
-        if self.delegate != nil {
-            updateScratchScopePercent()
+            if self.delegate != nil {
+                updateScratchScopePercent()
+            }
+        default:
+            break
         }
     }
 
