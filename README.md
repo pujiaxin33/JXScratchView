@@ -19,7 +19,7 @@
 ## 美女刮刮乐
 ![美女刮刮乐.gif](https://upload-images.jianshu.io/upload_images/1085173-1cf693ff93b33ff8.gif?imageMogr2/auto-orient/strip)
 
-参照了一个叫做“撕掉她的衣服”APP，效果非常sexy，有没有一种心跳加快，血脉膨胀的感觉。（相信大家迫不及待想要体验一下了，点击[https://fir.im/JXScratchView](https://fir.im/JXScratchView)，通过safari打开该链接，安装之后信任证书，就可以快速体验了）**相信我在空白处，双击一下，你会发现新大陆😍**
+参照了一个叫做“撕掉她的衣服”APP，效果非常sexy，有没有一种心跳加快，血脉膨胀的感觉。
 
 # 调研
 在网上搜索了一番，方案基本上就是这种：[链接](https://www.jianshu.com/p/7c2042764e0c)。
@@ -173,5 +173,4 @@ open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 - 遵从`JXScratchViewDelegate`，实现`func scratchView(scratchView: JXScratchView, didScratched percent: Float)`代理方法，就可以实时获取刮刮乐的百分比。
 - 建议新建一个UIView，把JXScratchView封装进去，可以参考`JXScratchTicketView`
 
-# Github仓库地址
-[仓库地址，喜欢就star一下❤️](https://github.com/pujiaxin33/JXScratchView) 
+喜欢就star一下❤️
